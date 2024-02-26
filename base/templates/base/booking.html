@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div>
+    {% if msg %}
+    <div class="btn btn-block btn-success" >
+        {{msg}}
+    </div>
+    {% endif %}
+    <div>
+        <h1 class="intro" > BOOK SERVICES...</h1>
+    </div>
+
+    <div>
+        <form action="{% url 'base:booking' %}" method="post">
+            {% csrf_token %}
+            <div style="margin: 5%;">
+                <label for="title" class="proj">TITLE:</label> <br>
+                <input class="form form-control" type="text" id="title" name="title" required maxlength="20">
+                <br>
+                <label for="message" class="proj">WHAT DO YOU NEED?</label>
+                <textarea class="form form-control" name="details" id="message" cols="30" rows="10"></textarea>
+                <br>
+                <label for="email" class="proj">EMAIL ADRESS:</label> <br>
+                <input class="form-control" type="email" name="email" id="email">
+                <small style="color: whitesmoke;" >This is to help me get back to you. I will never sell your info.</small>
+                <input type="submit" class="btn btn-success form-control">
+            </div>
+
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}
