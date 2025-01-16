@@ -1,0 +1,52 @@
+*{
+    border-style: solid;
+}
+
+h1 {
+    color:red;
+    align-self: center;
+    text-align: center;
+}
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+}
+#main-head{
+    font-size: x-large;
+    font-weight: 900;
+    text-align: center;
+    margin: 'auto';
+}
+
+#pfp{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
+.pfpContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media query for phones only*/
+@media screen and (max-width:600px){
+    h1{
+        color: blue;
+    }
+
+    #main{
+        margin-top: 5vh;
+    }
+    
+}
+
+/*Media query for ipads */
+@media screen and (min-width:601px) and (max-width:1024px){
+    h1{
+        color: orange;
+    }
+}

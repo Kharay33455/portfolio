@@ -1,67 +1,24 @@
 {% extends 'base/base.html' %}
 {% load static %}
+
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="column">
-            <div>
-                <img class="pfp" src="{{cand.picture.url}}" alt="">
-                <p class="intro">
-                    HI, I'm {{cand.first_name}} {{cand.last_name}}. <br>
-                    Nice to meet you!!!
-                </p>
-                <p class="intro2">
-                    I am a freelancing full stack developer living in Lagos, Nigeria. I go the extra mile to meet client
-                    expectations. Your imagination is my limitation.
-                </p>
-            </div>
-        </div>
-        <div class="column">
-            <div>
-                <h1 class="intro" style="text-decoration: underline;">PROJECTS</h1>
-            </div>
-            {% for proj in projs %}
-            <h3 class="intro" > {{proj.name}} </h3>
-            {% if proj.phone_view %}
-            <video controls class="pfp" src="{{proj.phone_view.url}}"></video>
-            <p class="tools" >PHONE VIEW</p>
-            {% endif %}
-            {% if proj.laptop_view %}
-            <video controls class="pfp" src="{{proj.laptop_view.url}}" ></video>
-            <p class="tools" >LAPTOP VIEW</p>
-            {%endif%}
-            <br> <br>
-            <div>
-                <h5 class="proj">
-                    {{proj.type}}
-                </h5>
 
-                <h5 class="tools">
-                    {{proj.tools}}
-                </h5>
-            </div>
-            <div class="details" >
-                {{proj.details}}
-            </div>
-            <div style="color: white;" >
-                <a href="{{proj.github}}" target="_blank">
-                VIEW ON GITHUB </a><br> <a href="{{proj.url}}" target="_blank"> VISIT PROJECT URL </a>
-            </div>
+<head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<!--Display person-->
 
-            {% endfor %}
-        </div>
-        <hr>
-        <div class="column intro">
-            {% for skill in skills %}
-            <div>
-                {{skill.name}}
-            </div>
-            <div class="intro2">
-                {{skill.experience}} year(s) of experience.
-            </div>
-            <hr>
-            {% endfor %}
-        </div>
+<main id="main">
+    <div>
+    <div style="display: block;">
+        <div class="pfpContainer">
+        <img src="{{cand.picture.url}}" id="pfp" />
     </div>
+
+    </div>
+    <h1 id="main-head">
+        Software <span id="title"></span>|
+    </h1>
 </div>
+</main>
 {% endblock %}

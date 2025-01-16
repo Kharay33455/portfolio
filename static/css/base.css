@@ -1,3 +1,13 @@
+
+/* Styling image */
+#back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.4;
+}
+
 .name{
     color:whitesmoke;
     font-size: x-large;
@@ -7,89 +17,7 @@
 body{
     background-color: black;
 }
-
-.word{
-    color: red;
-}
-
-* {
-    box-sizing: border-box;
-}
-  
-body{
-    font-family: Arial, Helvetica, sans-serif;
-}
-  
-  /* Style the header */
-  .header {
-    background-color: #f1f1f1;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-}
-  
-  /* Create three equal columns that floats next to each other */
-.column{
-    float: left;
-    width: 33.33%;
-    padding: 10px;
-    margin-top: 20px;
-}
-  
-  /* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-  
-  /* Style the footer */
-.footer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: center;
-}
-  
-  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
-    .column {
-      width: 100%;
-    }
-}
-  
-.pfp {
-    width: 100%;
-}
-
-.intro{
-    color: whitesmoke;
-    font-size: xx-large;
-    font-weight: bolder;
-    text-align: center;
-    font-family:Helvetica, Arial,  sans-serif;
-}
-
-.intro2{
-    color: white;
-    font-size: small;
-    font-weight: bolder;
-    text-align: center;
-    font-family:Helvetica, Arial,  sans-serif;
-}
-
-.proj{
-    color: whitesmoke;
-    font-size: medium;
-    font-family:Helvetica, Arial,  sans-serif;
-}
-
-.tools{
-    color: gray;
-    font-size: small;
-}
-
-.details{
-    color: white;
-    font-size: small;
-    text-align: justify;
+*{
+    padding: 0;
+    overflow-x: hidden;
 }
