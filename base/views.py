@@ -7,7 +7,8 @@ from .models import *
 def base(request):
     cand = Candidate.objects.first()
     projs = Project.objects.all()
-    skills = Skill.objects.all()
+    skills = Skill.objects.all().order_by('experience')
+    print(skills)
     context = {'cand': cand, 'projs':projs, 'skills':skills}
     return render(request, 'base/home.html', context)
 

@@ -13,7 +13,6 @@ window.onload = function () {
 
     // container for full app 
     const container = document.getElementById('full-container');
-    container.style.height = height + 'px';
     container.style.width = width + 'px'
 
 
