@@ -25,13 +25,13 @@ window.onload = function () {
 
     //main head
     const mainHead = document.getElementById('main-head');
-    mainHead.style.fontSize = (width / 20) + 'px';
+    mainHead.style.fontSize = (width / 15) + 'px';
     mainHead.style.width = width < 601 ? (80 / 100 * width) + 'px' : width < 1025 ? (60 / 100 * width) + 'px' : (50 / 100 * width) + 'px';
 
     //pfp
     const pfp = document.getElementById('pfp');
-    const val = width / 3
-    pfp.style.width = val + 'px';
+    const val =  width < 601 ? width/4 :  width > 601 && width < 1025 ?  width / 5 : width/8
+    pfp.style.width =   val + 'px';
     pfp.style.height = val + 'px';
     pfp.style.borderRadius = val + 'px';
 
@@ -41,7 +41,32 @@ window.onload = function () {
 
     // words to loop in animation
     const words = ['Developer.', 'Engineer.', 'Programmer.', 'Enthusiast.']
+    let loopCount = 0;
 
+    // recursice function to erase word till there's no letter left
+    //afterwards, call write word with the next viable count and increment the loop counter to track loop
+    const eraseWord = (index_of_words, i) => {
+        const wordErased = i;
+        const word = words[index_of_words];
+        const title = document.getElementById('title');
+        setTimeout(() => {
+            title.innerHTML = (word.slice(0, word.length - i));
+            i++
+            if (i < word.length + 1) {
+            
+                eraseWord(index_of_words, i);
+            }
+            else{
+                loopCount++;
+                if (loopCount <50)
+                {
+                   index_of_words < 3 ? writeWord(index_of_words + 1, 0) : writeWord(0,0);
+                }
+
+            }
+        }, 100);
+
+    }
 
 
     // write words function
@@ -50,24 +75,24 @@ window.onload = function () {
         let word = words[index_of_words]
         const title = document.getElementById('title');
         let count = i || 0;
-        
+
         title.innerHTML = word.slice(0, i)
         console.log(count)
         console.log(word)
         count++;
-        setTimeout(()=>{
-            if (count < word.length +1) {
+        setTimeout(() => {
+            if (count < word.length + 1) {
                 writeWord(index_of_words, count);
             }
-            else{
-                //eraseWord(index_of_words);
+            else {
+                eraseWord(index_of_words, 0);
                 console.log('Done')
             }
-        },200)
+        }, 200)
 
     }
 
-    writeWord(2, 0);
+    writeWord(0, 0);
 
     // erase words function
 
