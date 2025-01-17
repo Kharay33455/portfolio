@@ -52,27 +52,49 @@
 
 <section id="descriptor">
     <div class="topContainer">
-
         <div class="blog both">
-            <div class="words innerHeader">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
-                        class="bi bi-journals" viewBox="0 0 16 16">
-                        <path
-                            d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
-                        <path
-                            d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
-                    </svg>
-                </div>
-                Read my blog posts
+            <div>
+                <p style="font-size: 5vh;">
+                    Coming soon...
+                </p>
             </div>
+
+
+            <a href="" class="no-style">
+                <div class="words innerHeader">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
+                            class="bi bi-journals icon" viewBox="0 0 16 16">
+                            <path
+                                d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                            <path
+                                d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                        </svg>
+                    </div>
+                    Read my blog posts
+                </div>
+            </a>
+
         </div>
 
-        <div class="lang both">
+        <div class="lang both" onclick="showRepertoire()">
+
+            <div style="overflow: hidden;">
+                <ul class="list-group">
+                    {% for skill in skills %}
+                    <li class="list-group-item">
+                        <span style="font-weight: 900;">
+                            {{skill.name}}
+                        </span>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="words innerHeader">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
-                        class="bi bi-card-checklist" viewBox="0 0 16 16">
+                        class="bi bi-card-checklist icon" viewBox="0 0 16 16">
                         <path
                             d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
                         <path
@@ -81,8 +103,102 @@
                 </div>
                 Repertoire
             </div>
+
         </div>
 
     </div>
 </section>
+
+<!--Project gallery-->
+<section>
+    <h2 style="text-align: center; color: white;">
+        Show and tell
+    </h2>
+    <div style="justify-content: center; align-items: center; display: flex;">
+        <p id="sat">
+            Every project in this section was built from scratch by me. The aim, technology used, design structure and
+            techical requirements are all listed in the project description.
+            <br>
+            The projects are listed in a random order and do not reflect any specific order of importance.
+            <br>
+            Not all of my projects are listed here; only those that have been deployed to the internet are included. To
+            access the source code of undeployed projects or projects currently in development, please visit my <a href="https://github.com/Kharay33455" target="_blank">GitHub&nbsp;profile</a>. There, you can explore and view my codes for all my public projects in detail.
+        </p>
+    </div>
+
+    <div id="projects">
+
+        {% for proj in projs %}
+        <div id="project" style="background-image: url({{proj.screenshot.url}});">
+            <div id="projDescription">
+                <h3 style="overflow: hidden;">
+                    {{proj.name}}
+                </h3>
+                <p>
+                    {{proj.details}}
+                </p>
+                <p>
+                    {{proj.objective|slice:":100"}}...<span><a href="">more</a></span>
+                </p>
+                <a href="{{proj.url}}" target="_blank" onclick="alertOfRender()">
+                    <span class="link">
+
+                        Visit project url
+                    </span>
+                </a>
+                <br>
+
+                <a href="{{proj.github}}" target="_blank">
+                    <span class="link">
+
+                        View source code
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+
+<!--Repertoire expanded-->
+<div id="repertoire">
+    <div style="width: 10vw; margin-left: 75vw; margin-bottom: 3vh; display: block;" onclick="hideRepertoire()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="3vb" height="3vb" fill="red" class="bi bi-x-square-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708" />
+        </svg>
+    </div>
+
+    <div style="background-color: white; margin-top: 5vh;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for skill in skills %}
+                <tr>
+
+                    <th>
+                        {{skill.name}}
+                    </th>
+
+                    <td>
+                        {{skill.experience}} year(s).
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
 {% endblock %}

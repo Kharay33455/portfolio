@@ -1,8 +1,35 @@
-console.log('linked');
 // Get screen dimemsions to decide how elements are rendered
 const width = window.screen.width;
 const height = window.screen.height;
 
+
+const alertOfRender = () => {
+    alert("Note: Most of my projects are hosted on free services, which occasionally put sites to sleep to conserve power. As a result, it may take up to 50 seconds for the server to wake up and load the site or show an error incase of pythonanywhere. If the site isn't loading properly, please try reloading the page. Thank you for your understanding.")
+}
+
+const hideRepertoire = () => {
+    const repertoire = document.getElementById('repertoire');
+
+    repertoire.classList.add('hiderepertoireclass')
+    setTimeout(() => {
+        repertoire.style.display = 'none';
+        repertoire.classList.remove('hiderepertoireclass')
+    }, 1000)
+
+
+}
+
+const showRepertoire = () => {
+    const repertoire = document.getElementById('repertoire');
+    repertoire.style.height = 0 + 'vh';
+    repertoire.style.display = 'block';
+    repertoire.classList.add('showrepertoireclass')
+    setTimeout(() => {
+        repertoire.classList.remove('showrepertoireclass')
+        repertoire.style.height = 100 + 'vh';
+
+    }, 1000);
+}
 
 // make sure window has loaded before trying to render DOM
 window.onload = function () {
@@ -20,8 +47,6 @@ window.onload = function () {
     const mainContainer = document.getElementById('main');
     //mainContainer.style.width = width < 601 ? (80/100 * width) + 'px' : width < 1025 ? (60/100 * width) +'px': (50/100 * width) +'px';
 
-    console.log('done')
-
     //main head
     const mainHead = document.getElementById('main-head');
     mainHead.style.fontSize = (width / 15) + 'px';
@@ -29,8 +54,8 @@ window.onload = function () {
 
     //pfp
     const pfp = document.getElementById('pfp');
-    const val =  width < 601 ? width/4 :  width > 601 && width < 1025 ?  width / 5 : width/8
-    pfp.style.width =   val + 'px';
+    const val = width < 601 ? width / 4 : width > 601 && width < 1025 ? width / 5 : width / 8
+    pfp.style.width = val + 'px';
     pfp.style.height = val + 'px';
     pfp.style.borderRadius = val + 'px';
 
@@ -52,14 +77,16 @@ window.onload = function () {
             title.innerHTML = (word.slice(0, word.length - i));
             i++
             if (i < word.length + 1) {
-            
+
                 eraseWord(index_of_words, i);
             }
-            else{
+            else {
                 loopCount++;
-                if (loopCount <50)
-                {
-                   index_of_words < 3 ? writeWord(index_of_words + 1, 0) : writeWord(0,0);
+                if (loopCount < 50) {
+                    index_of_words < 3 ? writeWord(index_of_words + 1, 0) : writeWord(0, 0);
+                }
+                else {
+                    title.innerHTML = 'Developer.'
                 }
 
             }
@@ -76,8 +103,7 @@ window.onload = function () {
         let count = i || 0;
 
         title.innerHTML = word.slice(0, i)
-        console.log(count)
-        console.log(word)
+
         count++;
         setTimeout(() => {
             if (count < word.length + 1) {
@@ -85,7 +111,6 @@ window.onload = function () {
             }
             else {
                 eraseWord(index_of_words, 0);
-                console.log('Done')
             }
         }, 200)
 

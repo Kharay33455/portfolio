@@ -1,6 +1,12 @@
+/*
 * {
-    /* border-style: solid; */
+    border-style: solid;
 }
+    */
+
+.link{
+    padding-bottom: 2vh;
+}    
 
 h1 {
     color: white;
@@ -53,73 +59,111 @@ h1 {
     font-size: 1.5vw;
 }
 
-#descriptor{
+#descriptor {}
 
-}
-
-.topContainer{
+.topContainer {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-column-gap: 3vw;
     padding: 1vh;
-    height: 30vh;
 }
-.blog{
 
-}
-.lang{
+.blog {}
 
-}
-.both{
+.lang {}
+
+.both {
     background-color: white;
     padding: 1vw;
     position: relative;
+    overflow: hidden;
+    height: 50vh;
 }
 
-.innerHeader{
+.innerHeader {
     position: absolute;
     bottom: 0;
     color: black;
     font-weight: 900;
-    
-}
+    background-color: white;
+    width: 100%;
 
-/* Media query for phones only*/
-@media screen and (max-width:600px) {
-    #main {
-        margin-top: 5vh;
-    }
-
-    #main-inner-wrapper {
-        height: 25vh;
-    }
-
-    .words {
-        font-size: 2vh;
-    }
-    .topContainer{
-        grid-template-columns: 100%;
-        height: 60vh;
-    }
 
 }
 
-/*Media query for ipads */
-@media screen and (min-width:601px) and (max-width:1024px) {
+.no-style {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+}
 
-    .topContainer{
-        grid-template-columns: 40% 60%s;
+.no-style:visited {
+    color: black;
+}
+
+#repertoire {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10vh;
+}
+
+/*animation to hide div on click*/
+@keyframes hiderepertoire {
+    0% {
+        opacity: 1;
+        height: 100vh;
     }
 
-    #main-inner-wrapper {
-        height: 35vh;
-    }
-
-    .words {
-        font-size: 2.5vw;
+    100% {
+        opacity: 0;
+        height: 0vh;
     }
 }
 
+/* classees to make animation take effect */
+.hiderepertoireclass {
+    animation: hiderepertoire 1s;
+}
+
+.showrepertoireclass {
+    animation: hiderepertoire 1s reverse;
+}
+
+/* Animate blog and repertoire icons so user knows they are clickcable */
+@keyframes icons {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-30deg);
+    }
+
+    30% {
+        transform: rotate(30deg);
+    }
+
+    40% {
+        transform: rotate(-30deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.icon {
+    animation: icons 2s infinite;
+}
 
 /*animate blinker */
 @keyframes blinkerAnimation {
@@ -139,4 +183,118 @@ h1 {
 #blinker {
     animation: blinkerAnimation 1s infinite;
     color: gray;
+}
+
+#projects {
+    display: flex;
+    overflow-x: auto;
+    width: 100vw;
+    gap: 5vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+#project {
+    min-width: 30vw;
+    background-size: cover;
+    min-height: 70vh;
+    position: relative;
+    border-radius: 3vw;
+}
+
+#projDescription {
+    position: absolute;
+    bottom: 2vw;
+    left: 2vw;
+    background-color: white;
+    width: 26vw;
+    height: fit-content;
+    overflow: hidden;
+    padding: 1vw;
+    border-radius: 2vw;
+}
+
+#sat{
+    color: whitesmoke; width: 70vw;
+}
+/* Media query for phones only*/
+@media screen and (max-width:600px) {
+    #sat{
+        width: 90vw;
+    }
+    #main {
+        margin-top: 5vh;
+    }
+
+    #main-inner-wrapper {
+        height: 25vh;
+    }
+
+    .words {
+        font-size: 2vh;
+    }
+
+    .topContainer {
+        grid-template-columns: 100%;
+        height: auto;
+    }
+
+    .both {
+        height: 30vh;
+    }
+
+    #repertoire {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+
+    #project {
+        min-width: 80vw;
+        border-radius: 8vw;
+    }
+
+    #projDescription {
+        position: absolute;
+        bottom: 1vw;
+        left: 1vw;
+        background-color: white;
+        width: 76vw;
+ 
+    }
+
+}
+
+/*Media query for ipads */
+@media screen and (min-width:601px) and (max-width:1024px) {
+    #sat{
+        width: 80vw;
+    }
+    #project {
+        min-width: 60vw;
+        border-radius: 6vw;
+    }
+
+    #projDescription {
+        position: absolute;
+        bottom: 2vw;
+        left: 2vw;
+        background-color: white;
+        width: 56vw;
+    }
+
+    .topContainer {
+        grid-template-columns: 40% 60%;
+    }
+
+    #main-inner-wrapper {
+        height: 35vh;
+    }
+
+    .words {
+        font-size: 2.5vw;
+    }
+
+    .both {
+        height: 40vh;
+    }
 }

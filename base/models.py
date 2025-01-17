@@ -19,13 +19,44 @@ class Project(models.Model):
     type = models.CharField(max_length = 20)
     phone_view = models.FileField(null=True, blank=True)
     laptop_view = models.FileField(null=True, blank=True)
-    details = models.CharField(max_length = 300)
-    tools = models.CharField(max_length = 200, null = True, blank = True)
+    screenshot = models.ImageField(null=True, blank=True)
+    details = models.CharField(max_length = 250)
+    # why was it built
+    objective = models.TextField(null=True, blank=True)
+    # role on projects
+    role = models.TextField(null=True, blank=True)
+    # outcome after project
+    outcome = models.TextField(null=True, blank=True)
+    # what you leared on project
+    takeaways = models.TextField(null=True, blank=True)
     url = models.URLField()
     github = models.URLField()
 
     def __str__(self):
         return f'Project {self.name}'
+    
+class ChallengeAndSolution(models.Model):
+    challenge = models.TextField()
+    solution = models.TextField()
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Challenge and solution for {self.project.name}'
+    
+class TechnologyUsed(models.Model):
+    name = models.CharField(max_length=200)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} used for {self.project.name}'
+
+class KeyFeature(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} implementation for {self.project}'
     
 class Skill(models.Model):
     name = models.CharField(max_length =40)
