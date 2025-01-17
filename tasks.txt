@@ -1,0 +1,3 @@
+add fav icon and other icons
+add site description users can see before they visit site
+implement as much seo as possible
