@@ -93,8 +93,13 @@ const showRepertoire = () => {
 
 // make sure window has loaded before trying to render DOM
 window.onload = function () {
-    // run first immeidatly dom loads.
-    writeWord(0, 0);
+        // run first immeidatly dom loads.
+
+        // remode the class that hides the word "Software"
+        document.getElementById('software').classList.remove('hide-soft');
+        // start animating remaining part of sentence via loop
+        writeWord(0, 0);
+
 
     //background image setting
     const backgroundImg = document.getElementById('back');

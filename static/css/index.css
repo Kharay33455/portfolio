@@ -4,6 +4,10 @@
 }
     */
 
+.hide-soft {
+    display:none;
+}
+
 .link{
     padding-bottom: 2vh;
 }    
