@@ -45,3 +45,6 @@ def booking(request):
         cand = Candidate.objects.first()
         context ={'cand': cand}
         return render(request, 'base/booking.html', context)
+    
+def web3(request):
+    return render(request, 'base/web3.html', {})

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST Decentralized</title>
+    <script type="module">
+        import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js";
+
+        try {
+            // initialize provider
+            const metaMaskProvider = new ethers.providers.Web3Provider(window.ethereum);
+            await metaMaskProvider.send("eth_requestAccounts", []);
+
+            // create contract
+
+            const contractAddress = '0x8b28ccc041cf6b619feae5f90a75bdee4ba878d8';
+
+            const contractAbi = [
+                "function addTodo(string memory) public",
+                "function toggleTodo(uint) public",
+                "function getTodos() public view returns (string[] memory, bool[] memory)"
+            ]
+
+            const contractObj = new ethers.Contract(contractAddress, contractAbi, metaMaskProvider);
+            console.log(contractObj)
+            // signer to make chnages to block chain
+            const signer = metaMaskProvider.getSigner();
+
+            const signed = contractObj.connect(signer)
+
+            window.addToTodO = async function () {
+                try {
+                    const newTask = document.getElementById('addText').value;
+                    await signed.addTodo(newTask);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            window.toggleIndex = async function () {
+                try {
+                    const index = document.getElementById('toggleIndex').value;
+                    const response = await signed.toggleTodo(index);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            window.getAllTodos = async function () {
+                try {
+                    const todos = await contractObj.getTodos();
+                    const list = document.getElementById('list');
+
+                    // make arrays of tasks and matching status
+                    const tasks = todos[0];
+                    const status = todos[1];
+
+                    // clear list
+                    list.innerHTML = '';
+                    for(let i = 0; i < tasks.length; i++){
+                        const li = document.createElement('li');
+                        const stat = status[i] ? 'Completed' : 'Not completed';
+                        li.innerHTML =  'Task: ' + tasks[i] + '... Status: ' + stat;
+                        list.appendChild(li);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        } catch (error) {
+            console.log(error)
+            const errorMsg = error.toString(); 
+            if (errorMsg.includes('missing provider')){
+                alert('You must install MetaMask to interact with this service.')
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>
+        Welcome to dApp
+    </h1>
+
+    <section>
+        <h2>
+            Add to To-Do List.
+        </h2>
+        <div>
+            <input type="text" id="addText" />
+        </div>
+        <div>
+            <button onclick="addToTodO()">
+                Submit
+            </button>
+        </div>
+    </section>
+
+
+    <section>
+        <h2>
+            Toggle Todo.
+        </h2>
+        <div>
+            <input type="number" id="toggleIndex" />
+        </div>
+        <div>
+            <button onclick="toggleIndex()">
+                Toggle
+            </button>
+        </div>
+    </section>
+
+    <section>
+        <h2>
+            Get all ToDos.
+        </h2>
+        <div>
+            <button onclick="getAllTodos()">
+                Get all
+            </button>
+        </div>
+        <div>
+            <ul id="list">
+                
+            </ul>
+        </div>
+    </section>
+</body>
+
+</html>
