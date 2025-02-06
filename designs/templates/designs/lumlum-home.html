@@ -8,35 +8,32 @@
 </head>
 
 <style>
-    .big{
+    .big {
         color: red;
     }
-    *{
-        font-family: Helvetica, Arial,  sans-serif;
+
+    * {
+        font-family: Helvetica, Arial, sans-serif;
     }
+
     .bi-arrow-down-circle-fill {
         width: 40px;
         height: 40px;
         animation: animateArrow 1s linear infinite;
     }
-
     @keyframes animateArrow {
-        0% {
-            width: 40px;
-            height: 40px;
-        }
+            0% {
+                fill: black;
+            }
 
-        50% {
-            width: 50px;
-            height: 50px;
-        }
+            50% {
+                fill: white;
+            }
 
-        100% {
-            width: 40px;
-            height: 40px;
+            100% {
+                fill: white;
+            }
         }
-    }
-
     #bottomOverlayer {
         background-color: white;
         position: relative;
@@ -145,31 +142,30 @@
             z-index: 1;
             position: relative;
         }
-        .bottomText{
+
+        .bottomText {
             font-size: x-small
         }
+
         .bi-arrow-down-circle-fill {
-        width: 20px;
-        height: 20px;
-        animation: animateArrowP 1s linear infinite;
-    }
-
-    @keyframes animateArrowP {
-        0% {
             width: 20px;
             height: 20px;
+            animation: animateArrowP 1s linear infinite;
         }
 
-        50% {
-            width: 30px;
-            height: 30px;
-        }
+        @keyframes animateArrowP {
+            0% {
+                fill: black;
+            }
 
-        100% {
-            width: 20px;
-            height: 20px;
+            50% {
+                fill: white;
+            }
+
+            100% {
+                fill: white;
+            }
         }
-    }
     }
 
     /* Tablet devices */
@@ -298,7 +294,8 @@
 
                     <div id="bottomOverlayer" class="centerDiv">
 
-                        <div style="display: flex;  justify-content: space-evenly; width: 100vw; padding-top: 2vh; padding-left: 5%;">
+                        <div
+                            style="display: flex;  justify-content: space-evenly; width: 100vw; padding-top: 2vh; padding-left: 5%;">
                             <div>
                                 <p class="bottomText">
                                     DEC 25, 2024
@@ -334,7 +331,8 @@
     <!--Extra data-->
     <div style="margin-top: 10vh;">
         <p>
-            This site is mobile responsive but the animation was originally designed for desktop views. It'll look best on a Desktop/ Tablet.
+            This site is mobile responsive but the animation was originally designed for desktop views. It'll look best
+            on a Desktop/ Tablet.
         </p>
         <p style="font-size: x-large; font-weight: 500;">
             Like what you see? <a href="{% url 'base:base' %}">Contact the developer</a>
