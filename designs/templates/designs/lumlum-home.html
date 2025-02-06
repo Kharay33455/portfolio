@@ -8,6 +8,11 @@
 </head>
 
 <style>
+    .sImage {
+        width: 20vw;
+        height: 30vw;
+    }
+
     .big {
         color: red;
     }
@@ -19,21 +24,23 @@
     .bi-arrow-down-circle-fill {
         width: 40px;
         height: 40px;
-        animation: animateArrow 1s linear infinite;
+        animation: animateArrow 2s linear infinite;
     }
+
     @keyframes animateArrow {
-            0% {
-                fill: black;
-            }
-
-            50% {
-                fill: white;
-            }
-
-            100% {
-                fill: white;
-            }
+        0% {
+            fill: black;
         }
+
+        50% {
+            fill: white;
+        }
+
+        100% {
+            fill: black;
+        }
+    }
+
     #bottomOverlayer {
         background-color: white;
         position: relative;
@@ -115,6 +122,11 @@
 
     /* Mobile Devices */
     @media screen and (max-width:600px) {
+        .sImage {
+            width: 33vw;
+            height: 50vw;
+        }
+
         #bottomOverlayer {
             margin-top: -30px;
             width: 200vw;
@@ -166,10 +178,47 @@
                 fill: white;
             }
         }
+        
+        #slide {
+            display: flex;
+            gap: 2vw;
+            width: 98vw;
+
+            animation: sliderM 10s linear infinite;
+        }
+
+        @keyframes sliderM {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-315vw);
+            }
+        }
     }
 
     /* Tablet devices */
     @media screen and (min-width:601px) and (max-width : 1201px) {
+        #slide {
+            animation: sliderD 10s linear infinite;
+        }
+
+        @keyframes sliderD {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-243vw);
+            }
+        }
+
+        .sImage {
+            width: 25vw;
+            height: 38vw;
+        }
+
         #bottomOverlayer {
             margin-top: -66px;
         }
@@ -187,6 +236,7 @@
             z-index: 1;
             position: relative;
         }
+
 
     }
 </style>
@@ -278,12 +328,12 @@
                         <div id="slide">
                             {% for image in images %}
                             <div>
-                                <img src="{{image.image.url}}" alt="" style="width: 20vw; height: 30vw;">
+                                <img src="{{image.image.url}}" alt="" class="sImage">
                             </div>
                             {% endfor %}
                             {% for image in images %}
                             <div>
-                                <img src="{{image.image.url}}" alt="" style="width: 20vw; height: 30vw;">
+                                <img src="{{image.image.url}}" alt="" class="sImage">
                             </div>
                             {% endfor %}
                         </div>
