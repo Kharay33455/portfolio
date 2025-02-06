@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page.project}}</title>
+</head>
+
+<style>
+    .big{
+        color: red;
+    }
+    *{
+        font-family: Helvetica, Arial,  sans-serif;
+    }
+    .bi-arrow-down-circle-fill {
+        width: 40px;
+        height: 40px;
+        animation: animateArrow 1s linear infinite;
+    }
+
+    @keyframes animateArrow {
+        0% {
+            width: 40px;
+            height: 40px;
+        }
+
+        50% {
+            width: 50px;
+            height: 50px;
+        }
+
+        100% {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    #bottomOverlayer {
+        background-color: white;
+        position: relative;
+        z-index: 2;
+        margin-top: -100px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        width: 110vw;
+    }
+
+    #overlayer {
+        padding-bottom: 100px;
+        background-color: white;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        width: 110%;
+        margin-left: -5%;
+    }
+
+    #slideWrapper {
+        margin-top: -150px;
+        z-index: 1;
+        position: relative;
+    }
+
+    #slide {
+        display: flex;
+        gap: 2vw;
+        width: 98vw;
+
+
+        animation: slider 10s linear infinite;
+    }
+
+    @keyframes slider {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-198vw);
+        }
+    }
+
+
+    .bar {
+        font-weight: 900;
+    }
+
+    .big {
+        font-size: xx-large;
+    }
+
+    #navWrap {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        padding-left: 3vw;
+    }
+
+    #innerLinks {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-top: 1vh;
+    }
+
+    .centerDiv {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #captText {
+        font-size: 4vw;
+    }
+
+    #smallText {
+        font-size: medium;
+    }
+
+    /* Mobile Devices */
+    @media screen and (max-width:600px) {
+        #bottomOverlayer {
+            margin-top: -30px;
+            width: 200vw;
+        }
+
+        #overlayer {
+            padding-bottom: 20px;
+        }
+
+        #smallText {
+            font-size: xx-small;
+        }
+
+        #navWrap {
+            grid-template-columns: 50% 50%;
+            padding-left: 1vw;
+        }
+
+        #captText {
+            font-size: 2vh;
+        }
+
+        #slideWrapper {
+            margin-top: -50px;
+            z-index: 1;
+            position: relative;
+        }
+        .bottomText{
+            font-size: x-small
+        }
+        .bi-arrow-down-circle-fill {
+        width: 20px;
+        height: 20px;
+        animation: animateArrowP 1s linear infinite;
+    }
+
+    @keyframes animateArrowP {
+        0% {
+            width: 20px;
+            height: 20px;
+        }
+
+        50% {
+            width: 30px;
+            height: 30px;
+        }
+
+        100% {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    }
+
+    /* Tablet devices */
+    @media screen and (min-width:601px) and (max-width : 1201px) {
+        #bottomOverlayer {
+            margin-top: -66px;
+        }
+
+        #overlayer {
+            padding-bottom: 33px;
+        }
+
+        #captText {
+            font-size: 5vw;
+        }
+
+        #slideWrapper {
+            margin-top: -100px;
+            z-index: 1;
+            position: relative;
+        }
+
+    }
+</style>
+
+<script>
+    let width = window.innerWidth
+    document.getElementById('body').style.width = width;
+</script>
+
+<body style="overflow-x: hidden;">
+    <nav>
+        <div id="navWrap">
+            <div>
+                <h1 style="font-size: x-large;">
+                    <span class="big">L</span>UMLU<span class="big">M</span>
+                </h1>
+            </div>
+            <div id="innerLinks">
+                <div>
+                    <p>
+                        <b>
+                            Home
+                        </b>
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Album
+                    </p>
+                </div>
+
+                <div>
+                    <p>
+                        Contact
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Holds entire body-->
+    <main style="width: 98vw; overflow-x: hidden;" id="body">
+        <!--Capture-->
+        <div style="margin-top: 2vh;">
+            <div class="centerDiv">
+                <div>
+                    <div style="position: relative; z-index: 2;">
+
+                        <div class="centerDiv">
+                            <span id="captText">
+                                <b>
+                                    CAPTURING THE VIBE,<br />FREEZING THE MOMENT
+                                </b>
+
+                            </span>
+                        </div>
+                        <div class="centerDiv" style="margin-top: 2vh;">
+                            <span id="smallText">
+                                Specialized in capturing amazing pictures and moments you would always remember.
+                            </span>
+                        </div>
+
+                        <div id="overlayer">
+                            <div class="centerDiv">
+                                <div
+                                    style="background-color: black; color: white; border-radius: 30vw; padding-left: 2vw; padding-right: 2vw; display: flex; margin-top: 2vh;">
+                                    <p>
+                                        Send Us a Message
+                                    </p>
+                                    <p style="font-weight: 900; padding-left: 1vw;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                        </svg>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div id="slideWrapper">
+                        {% if images %}
+
+                        <div id="slide">
+                            {% for image in images %}
+                            <div>
+                                <img src="{{image.image.url}}" alt="" style="width: 20vw; height: 30vw;">
+                            </div>
+                            {% endfor %}
+                            {% for image in images %}
+                            <div>
+                                <img src="{{image.image.url}}" alt="" style="width: 20vw; height: 30vw;">
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+                        {% endif %}
+                    </div>
+
+                    <div id="bottomOverlayer" class="centerDiv">
+
+                        <div style="display: flex;  justify-content: space-evenly; width: 100vw; padding-top: 2vh; padding-left: 5%;">
+                            <div>
+                                <p class="bottomText">
+                                    DEC 25, 2024
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="bottomText">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                                    </svg>
+                                </p>
+
+                            </div>
+
+                            <div class="bottomText">
+                                <p>
+                                    MEMORIES THAT LAST FOREVER
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </main>
+
+    <!--Extra data-->
+    <div style="margin-top: 10vh;">
+        <p>
+            This site is mobile responsive but the animation was originally designed for desktop views. It'll look best on a Desktop/ Tablet.
+        </p>
+        <p style="font-size: x-large; font-weight: 500;">
+            Like what you see? <a href="{% url 'base:base' %}">Contact the developer</a>
+
+        </p>
+    </div>
+</body>
+
+</html>
