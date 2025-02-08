@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch by Sam Designs</title>
+</head>
+
+<!--JavaScript-->
+<script>
+    let active = "dark"
+    let isAnimating = false;
+
+
+
+    window.onload = () => {
+        document.getElementById('body').style.opacity = '1';
+        // get all elements and show default
+        const frame1 = document.querySelector('[id*="Frame_1"]');
+        const frame2 = document.querySelector('[id*="Frame_2"]');
+        const frame3 = document.querySelector('[id*="Frame_3"]');
+        const slider = document.querySelector('[id*="Group_1"]');
+        const blackRect = document.querySelector('[id*="blackRect"]');
+        const whiteRect = document.querySelector('[id*="whiteRect"]');
+        frame3.style.opacity = '1';
+
+
+
+        // function to perfom animation.. Take currMode as current mode
+        function changeTheme(currMode) {
+            if (!isAnimating) {
+                // set is animating to true so user cant retrigger function till animation ends
+                isAnimating = true;
+                const slideVal = blackRect.width;
+
+                // go from light to dark
+                if (active === 'light') {
+                    // change style
+                    frame1.style.opacity = '0';
+                    frame3.style.opacity = '1';
+                    slider.style.opacity = '1';
+
+
+
+                    // play animation
+                    frame1.classList.add('fadeOut');
+                    frame3.classList.add('fadeIn');
+                    frame2.classList.add('trans');
+                    whiteRect.classList.add('fadeOut');
+                    blackRect.classList.add('fadeIn');
+                    slider.classList.add('slideSliderR');
+                    setTimeout(() => {
+                        slider.style.opacity = '0';
+                        slider.classList.remove('slideSliderR');
+                        blackRect.classList.remove('fadeIn');
+                        whiteRect.classList.remove('fadeOut');
+                        frame1.classList.remove('fadeOut');
+                        frame3.classList.remove('fadeIn');
+                        frame2.classList.remove('trans');
+
+                    }, 1000);
+                }
+
+                // go from dark to light
+                if (active === 'dark') {
+                    // change style
+                    frame3.style.opacity = '0';
+                    frame1.style.opacity = '1';
+                    slider.style.opacity = '1';
+
+                    // play animation
+                    frame3.classList.add('fadeOut');
+                    frame2.classList.add('trans');
+                    frame1.classList.add('fadeIn');
+                    whiteRect.classList.add('fadeIn');
+                    blackRect.classList.add('fadeOut');
+                    slider.classList.add('slideSlider')
+
+                    setTimeout(() => {
+                        slider.classList.remove('slideSlider')
+                        slider.style.opacity = '0';
+                        blackRect.classList.remove('fadeOut');
+                        whiteRect.classList.remove('fadeIn');
+                        frame3.classList.remove('fadeOut');
+                        frame1.classList.remove('fadeIn');
+                        frame2.classList.remove('trans');
+
+                    }, 1000);
+                }
+
+                // set new mode
+                active = currMode === 'light' ? 'dark' : 'light';
+
+                isAnimating = false;
+                // set is animating to false so user can trigger function again
+            }
+        }
+
+
+
+
+        // add event listener to trigger fucntion on button click
+        slider.addEventListener('click', function () {
+            changeTheme(active);
+        })
+
+    }
+</script>
+
+<!--CSS-->
+<style>
+    #body{
+        opacity: 0;
+    }
+    .text {
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+    }
+
+    .imageWrapper {
+        position: absolute;
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 5vh;
+    }
+
+    [id*="Group_1"] {
+        opacity: 1;
+        z-index: 18;
+    }
+
+    [id*="blackRect"],
+    [id*="whiteRect"],
+    [id*="sliderLine"] {
+        opacity: 0;
+    }
+
+    .sImage {
+        opacity: 0;
+    }
+
+
+
+    /*Animations*/
+
+    .fadeIn {
+        animation: fade 1s;
+    }
+
+    .fadeOut {
+        animation: fade 1s reverse;
+    }
+
+    .trans {
+        animation: transA 1s;
+    }
+
+    .slideSlider {
+        animation: slideSliderA ease-in-out 1s;
+    }
+
+    .slideSliderR {
+        animation: slideSliderA 1s ease-in-out reverse;
+
+    }
+
+
+    @keyframes slideSliderA {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-29%);
+        }
+    }
+
+
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes transA {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+
+
+    /*Mobile screen*/
+    @media screen and (max-width : 600px) {
+
+        .sImage {
+            width: 70vw;
+            height: 60vw;
+        }
+
+        [id*="Group_1"] {
+            height: 21vw;
+            width: 19vw;
+            padding-top: 4.1vh;
+            padding-left: 13vw;
+        }
+
+        [id*="blackRect"],
+        [id*="whiteRect"] {
+            width: 18vw;
+            height: 8vw;
+            padding-top: 0.2vh;
+        }
+
+        [id*="sliderLine"] {
+            height: 0.1vh;
+            width: 14vw;
+            border-radius: 17vw;
+        }
+    }
+
+    /*Tablets*/
+    @media screen and (min-width : 601px) and (max-width:1200px) {
+        .sImage {
+            width: 80vw;
+            height: 70vw;
+        }
+
+        [id*="Group_1"] {
+            height: 18.5vh;
+            width: 23vw;
+            padding-top: 8vh;
+            padding-left: 15vw;
+        }
+
+        [id*="blackRect"],
+        [id*="whiteRect"] {
+            width: 19vw;
+            height: 7vh;
+            padding-top: 0.3vh;
+        }
+
+        [id*="sliderLine"] {
+            height: 0.4vh;
+            width: 14vw;
+            border-radius: 17vw;
+        }
+    }
+
+    /*Laptop View*/
+    @media screen and (min-width:1201px) {
+        h1 {
+            color: gray;
+        }
+
+        .sImage {
+            width: 60vw;
+            height: 80vh;
+        }
+
+        [id*="Group_1"] {
+            height: 30vh;
+            width: 17vw;
+            padding-top: 13vh;
+            padding-left: 11vw;
+        }
+
+        [id*="blackRect"],
+        [id*="whiteRect"] {
+            width: 15vw;
+            height: 11vh;
+            padding-top: 0.4vh;
+        }
+
+        [id*="sliderLine"] {
+            height: 0.5vh;
+            width: 12vw;
+            border-radius: 17vw;
+        }
+    }
+</style>
+
+<body id="body">
+
+    <main>
+        <!--Contain animation-->
+        <div style="width: 90vw; overflow-x: hidden; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 85vw; display: flex; align-items: center; justify-content: center;">
+                {% for image in images %}
+                <div class="imageWrapper">
+                    <img src="{{image.image.url}}" class="sImage" id="{{image.image.url}}" />
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </main>
+
+    <div style="position: absolute; top: 100vh;">
+        <p class="text">
+            Title: Slider Animation.
+        </p>
+        <br><br>
+        <p class="text">
+            Contact Designer
+        </p>
+        <p class="text">
+            Designer: <a href="https://x.com/sam_design5">Sam</a>.
+        </p>
+
+        <br><br>
+        <p class="text">
+            Contact Developer
+        </p>
+        <p class="text">
+            Developer: <a href="https://x.com/KharayKrayKray">Kharay</a>
+        </p>
+
+        <br><br>
+        <a href="{% url 'base:base' %}" s>More from developer...</a>
+
+    </div>
+    <br><br><br>
+</body>
+
+</html>
