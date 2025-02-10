@@ -11,6 +11,7 @@ class PageData(models.Model):
 class Image(models.Model):
     page = models.ForeignKey(PageData, on_delete= models.CASCADE)
     image = models.ImageField(upload_to='projectImages')
+    associatedText = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.page} picture'
