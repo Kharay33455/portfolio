@@ -1,47 +1,66 @@
-#carCont{
-    display: flex; width: 100vw; overflow-x: scroll; justify-content: space-evenly; align-content: center; position: relative;
+/*STyle body*/
+#main {
+    /*All text is white by default, our background is black*/
+    color: white;
+
+    /*Make sure it takes all the screen*/
+    min-height: 100vh;
+
+    /*Make invisible for now*/
+    opacity: 0;
 }
 
-#carCont::-webkit-scrollbar{
+/* Scroll view to hold elements to screen */
+#carCont {
+    /*Make element appear in flex box*/
+    display: flex;
+    /* implement horizontal scroll */
+    width: 100vw;
+    overflow-x: scroll;
+    /* Space elements evenly */
+    justify-content: space-evenly;
+    /*For overlapping*/
+    position: relative;
+}
+
+/* Remove scroll bar*/
+.noScroll::-webkit-scrollbar {
     display: none;
 }
 
-.noScroll::-webkit-scrollbar{
-    display: none;
-    
-}
-.singlePage{
+/* This div holds a single page*/
+.singlePage {
+    /*Dimensions*/
     min-width: 33.3vw;
     min-height: 40vw;
+    /*Allows overlapping manipulation*/
     position: relative;
     z-index: 1;
+    /*Center div vertically*/
     display: grid;
     align-items: center;
+    /* SImple animation */
     transition: 500ms ease;
-    
 }
-.expand{
+
+/* Triggered when element is in center */
+.expand {
+    /* Increase size */
     transform: scale(1.5);
+    /*Allow oveerlapping and make appear above all other elements*/
     position: relative;
     z-index: 3;
+    /*Amination*/
     transition: 1s ease-in-out;
-    box-shadow: 10vw 15px rgba(0, 0, 0, 0.3), -10vw 15px rgba(0, 0, 0, 0.3) ;
+    /*Shadow*/
+    box-shadow: 10vw 15px rgba(0, 0, 0, 0.3), -10vw 15px rgba(0, 0, 0, 0.3);
 }
-
-
-
 
 /*Mobile*/
-@media screen and (max-width:600px){
-
-}
+@media screen and (max-width:600px) {}
 
 /*Tablets*/
-@media screen and (min-width : 601px) and (max-width : 1200px){
-
-}
+@media screen and (min-width : 601px) and (max-width : 1200px) {}
 
 /*Desktop*/
-@media screen and (min-width:1201px){
-
-}
+@media screen and (min-width:1201px) {}
