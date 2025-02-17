@@ -2,209 +2,221 @@
 {% load static %}
 
 {% block content %}
-<!--Head to link style sheet-->
-<head>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
-<!--Display person-->
+<div id="mainBod" style="opacity: 0;">
 
-<main id="main">
-    <div id="main-inner-wrapper">
-        <div style="display: block;">
-            <div class="pfpContainer">
-                <img src="{{cand.picture.url}}" id="pfp" />
+    <!--Head to link style sheet-->
+
+    <head>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <!--Display person-->
+
+    <main id="main">
+        <div id="main-inner-wrapper">
+            <div style="display: block;">
+                <div class="pfpContainer">
+                    <img src="{{cand.picture.url}}" id="pfp" />
+                </div>
+
             </div>
+            <!--Animation-->
+            <h1 id="main-head">
+                <span class="hide-soft" id="software">Software </span><span id="title">wait for it....</span><span
+                    id="blinker">|</span>
+            </h1>
+
 
         </div>
-        <!--Animation-->
-        <h1 id="main-head">
-            <span class="hide-soft" id="software">Software </span><span id="title">wait for it....</span><span id="blinker">|</span>
-        </h1>
+    </main>
 
+    <div id="intro">
+        <p class="words">
+            Welcome to my online portfolio! I am a passionate and driven professional software developer with skills
+            ranging
+            from web application design and development, infrastructure hosting, mobile application building and
+            deployment,
+            to desktop application creation. I am highly adaptable in building various types of user-friendly, high-end
+            software and solving complex problems with simple solutions in code.
+            With over 2 years of professional development experience, (don't believe me? <a
+                style="color: yellow; font-style: italic; font-size: larger;" href="https://www.github.com/Kharay33455"
+                target="_blank">Check-out</a> my GitHub
+            profile.)
+        </p>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 1vw;">
+            <img src="{% static 'images/github.png' %}" style="width: 80vw;" />
+        </div>
+        <p class="words">
+            I have specialized in user-end software development of all kinds. I specifically work with C, JavaScript,
+            Python, and x86 assembly languages. My goal is always to combine resourcefulness and knowledge that may
+            otherwise seem trivial, finding ways to apply them to create innovative and user-centered applications.
+        </p>
+
+        <p class="words">
+            Feel free to explore some of my work, and reach out to me. I am always open for work.
+        </p>
+
+        <p class="words">
+            Click on the dancing "Repertoire" icon below to explore a comprehensive overview of my skillset.
+        </p>
 
     </div>
-</main>
 
-<div id="intro">
-    <p class="words">
-        Welcome to my online portfolio! I am a passionate and driven professional software developer with skills ranging
-        from web application design and development, infrastructure hosting, mobile application building and deployment,
-        to desktop application creation. I am highly adaptable in building various types of user-friendly, high-end
-        software and solving complex problems with simple solutions in code.
-        With over 2 years of professional development experience, (don't believe me? <a
-            style="color: yellow; font-style: italic; font-size: larger;" href="https://www.github.com/Kharay33455"
-            target="_blank">Check-out</a> my GitHub
-        profile.)
-    </p>
-    <div style="display: flex; align-items: center; justify-content: center; margin: 1vw;">
-        <img src="{% static 'images/github.png' %}" style="width: 80vw;" />
-    </div>
-    <p class="words">
-        I have specialized in user-end software development of all kinds. I specifically work with C, JavaScript,
-        Python, and x86 assembly languages. My goal is always to combine resourcefulness and knowledge that may
-        otherwise seem trivial, finding ways to apply them to create innovative and user-centered applications.
-    </p>
+    <section id="descriptor">
+        <div class="topContainer">
+            <div class="blog both">
+                <div>
+                    <p>
+                        Sometimes, I stumble upon some really cool designs, animations, or ideas on the internet, and I
+                        can’t resist giving them a shot myself...
+                        <br>The projects here are echos of those inspirations.
+                    </p>
+                </div>
 
-    <p class="words">
-        Feel free to explore some of my work, and reach out to me. I am always open for work.
-    </p>
 
-    <p class="words">
-        Click on the dancing "Repertoire" icon below to explore a comprehensive overview of my skillset. 
-    </p>
+                <a href="{% url 'designs:designs' %}" class="no-style">
+                    <div class="words innerHeader">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
+                                class="bi bi-journals icon" viewBox="0 0 16 16">
+                                <path
+                                    d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                <path
+                                    d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                            </svg>
+                        </div>
+                        Explore My Echos
+                    </div>
+                </a>
 
-</div>
-
-<section id="descriptor">
-    <div class="topContainer">
-        <div class="blog both">
-            <div>
-                <p>
-                    Sometimes, I stumble upon some really cool designs, animations, or ideas on the internet, and I can’t resist giving them a shot myself... 
-                <br>The projects here are echos of those inspirations.
-                </p>
             </div>
 
+            <div class="lang both" onclick="showRepertoire()">
 
-            <a href="{% url 'designs:designs' %}" class="no-style">
+                <div style="overflow: hidden;">
+                    <ul class="list-group">
+                        {% for skill in skills %}
+                        <li class="list-group-item">
+                            <span style="font-weight: 900;">
+                                {{skill.name}}
+                            </span>
+
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <div class="words innerHeader">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
-                            class="bi bi-journals icon" viewBox="0 0 16 16">
+                            class="bi bi-card-checklist icon" viewBox="0 0 16 16">
                             <path
-                                d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
                             <path
-                                d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
                         </svg>
                     </div>
-                    Explore My Echos
+                    Repertoire
                 </div>
-            </a>
 
-        </div>
-
-        <div class="lang both" onclick="showRepertoire()">
-
-            <div style="overflow: hidden;">
-                <ul class="list-group">
-                    {% for skill in skills %}
-                    <li class="list-group-item">
-                        <span style="font-weight: 900;">
-                            {{skill.name}}
-                        </span>
-
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="words innerHeader">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="5vh" height="5vh" fill="currentColor"
-                        class="bi bi-card-checklist icon" viewBox="0 0 16 16">
-                        <path
-                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
-                        <path
-                            d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
-                    </svg>
-                </div>
-                Repertoire
             </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
-
-<!--Project gallery-->
-<section>
-    <h2 style="text-align: center; color: white;">
-        Show and tell
-    </h2>
-    <div style="justify-content: center; align-items: center; display: flex;">
-        <p id="sat">
-            Every project in this section was built from scratch by me. The aim, technology used, design structure and
-            techical requirements are all listed in the project description.
-            <br>
-            The projects are listed in a random order and do not reflect any specific order of importance.
-            <br>
-            Not all of my projects are listed here; only those that have been deployed to the internet are included. To
-            access the source code of undeployed projects or projects currently in development, please visit my <a href="https://github.com/Kharay33455" target="_blank">GitHub&nbsp;profile</a>. There, you can explore and view my codes for all my public projects in detail.
-        </p>
-    </div>
-
-    <div id="projects">
-
-        {% for proj in projs %}
-        <div id="project" style="background-image: url({{proj.screenshot.url}});">
-            <div id="projDescription">
-                <h3 style="overflow: hidden;">
-                    {{proj.name}}
-                </h3>
-                <p>
-                    {{proj.details}}
-                </p>
-                <p>
-                    {{proj.objective|slice:":100"}}...<span><a href="">more</a></span>
-                </p>
-                <a href="{{proj.url}}" target="_blank" onclick="alertOfRender()">
-                    <span class="link">
-
-                        Visit project url
-                    </span>
-                </a>
+    <!--Project gallery-->
+    <section>
+        <h2 style="text-align: center; color: white;">
+            Show and tell
+        </h2>
+        <div style="justify-content: center; align-items: center; display: flex;">
+            <p id="sat">
+                Every project in this section was built from scratch by me. The aim, technology used, design structure
+                and
+                techical requirements are all listed in the project description.
                 <br>
+                The projects are listed in a random order and do not reflect any specific order of importance.
+                <br>
+                Not all of my projects are listed here; only those that have been deployed to the internet are included.
+                To
+                access the source code of undeployed projects or projects currently in development, please visit my <a
+                    href="https://github.com/Kharay33455" target="_blank">GitHub&nbsp;profile</a>. There, you can
+                explore and view my codes for all my public projects in detail.
+            </p>
+        </div>
 
-                <a href="{{proj.github}}" target="_blank">
-                    <span class="link">
+        <div id="projects">
 
-                        View source code
-                    </span>
-                </a>
+            {% for proj in projs %}
+            <div id="project" style="background-image: url({{proj.screenshot.url}});">
+                <div id="projDescription">
+                    <h3 style="overflow: hidden;">
+                        {{proj.name}}
+                    </h3>
+                    <p>
+                        {{proj.details}}
+                    </p>
+                    <p>
+                        {{proj.objective|slice:":100"}}...<span><a href="">more</a></span>
+                    </p>
+                    <a href="{{proj.url}}" target="_blank" onclick="alertOfRender()">
+                        <span class="link">
+
+                            Visit project url
+                        </span>
+                    </a>
+                    <br>
+
+                    <a href="{{proj.github}}" target="_blank">
+                        <span class="link">
+
+                            View source code
+                        </span>
+                    </a>
+
+                </div>
 
             </div>
-
+            {% endfor %}
         </div>
-        {% endfor %}
+
+    </section>
+
+
+
+    <!--Repertoire expanded-->
+    <div id="repertoire">
+        <div style="width: 10vw; margin-left: 75vw; margin-bottom: 3vh; display: block;" onclick="hideRepertoire()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="3vb" height="3vb" fill="red" class="bi bi-x-square-fill"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708" />
+            </svg>
+        </div>
+
+        <div style="background-color: white; margin-top: 5vh;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Experience</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for skill in skills %}
+                    <tr>
+
+                        <th>
+                            {{skill.name}}
+                        </th>
+
+                        <td>
+                            {{skill.experience}} year(s).
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
     </div>
-
-</section>
-
-
-
-<!--Repertoire expanded-->
-<div id="repertoire">
-    <div style="width: 10vw; margin-left: 75vw; margin-bottom: 3vh; display: block;" onclick="hideRepertoire()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="3vb" height="3vb" fill="red" class="bi bi-x-square-fill"
-            viewBox="0 0 16 16">
-            <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708" />
-        </svg>
-    </div>
-
-    <div style="background-color: white; margin-top: 5vh;">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Experience</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for skill in skills %}
-                <tr>
-
-                    <th>
-                        {{skill.name}}
-                    </th>
-
-                    <td>
-                        {{skill.experience}} year(s).
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
 </div>
 {% endblock %}

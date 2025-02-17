@@ -127,9 +127,12 @@ window.onload = function () {
     pfp.style.height = val + 'px';
     pfp.style.borderRadius = val + 'px';
 
-    document.getElementById('mainBod').style.opacity='1';
+    try {
+        document.getElementById('mainBod').style.opacity='1';
 
-
+    } catch (error) {
+        
+    }
 
 }
 
