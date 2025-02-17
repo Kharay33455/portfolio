@@ -19,6 +19,9 @@
     <p style="text-align: center;">
         All the designs on this page are inspired by existing works by designers I've encountered elsewhere. While the stylings aren't mine, the implementations and executions are."
     </p>
+    <p style="text-align: center;">
+        CLICK TO VIEW
+    </p>
     <!--Lazy spacing-->
     <br> <br> <br>
 
@@ -30,13 +33,17 @@
             <!--Create 2 copies of images-->
             {% for page in pages %}
             <div class="singlePage">
+                <a href="{% url 'designs:project' page.page.project %}">
                     <img src="{{page.page.screenshotLaptop.url}}" style="min-width: 33vw; max-width: 33vw;" />
+                </a>
             </div>
             {% endfor %}
             <!--Secind copy-->
             {% for page in pages %}
             <div class="singlePage">
-                <img src="{{page.page.screenshotLaptop.url}}" style="min-width: 33vw; max-width: 33vw;" />
+                <a href="{% url 'designs:project' page.page.project %}">
+                    <img src="{{page.page.screenshotLaptop.url}}" style="min-width: 33vw; max-width: 33vw;" />
+                </a>
             </div>
             {% endfor %}
         </div>

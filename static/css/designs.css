@@ -53,7 +53,7 @@
     /*Amination*/
     transition: 1s ease-in-out;
     /*Shadow*/
-    box-shadow: 10vw 15px rgba(0, 0, 0, 0.3), -10vw 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 10vw 15px rgba(0, 0, 0, 0.3), -10vw 15px rgba(0, 0, 0, 0.3), 0vw 20vh 15px rgba(0, 0, 0, 0.3), 0vw -20vh 15px rgba(0, 0, 0, 0.3) ;
 }
 
 /*Conatianer div*/
@@ -64,10 +64,22 @@
 }
 
 /*Mobile*/
-@media screen and (max-width:600px) {}
+@media screen and (max-width:600px) {
+    .singlePage {
+        /*Dimensions*/
+        min-height: 70vw;
+    }
+}
 
 /*Tablets*/
-@media screen and (min-width : 601px) and (max-width : 1200px) {}
+@media screen and (min-width : 601px) and (max-width : 1200px) {
+    .singlePage {
+        /*Dimensions*/
+        min-height: 60vw;
+    }
+}
 
 /*Desktop*/
-@media screen and (min-width:1201px) {}
+@media screen and (min-width:1201px) {
+
+}
