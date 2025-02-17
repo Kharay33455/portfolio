@@ -5,4 +5,5 @@ app_name = 'designs'
 
 urlpatterns = [
     path('<slug:proj_id>/', views.project, name='project'),
+    path('', views.designs, name='designs'),
 ]

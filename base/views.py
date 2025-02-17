@@ -48,3 +48,4 @@ def booking(request):
     
 def web3(request):
     return render(request, 'base/web3.html', {})
+
