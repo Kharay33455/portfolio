@@ -28,6 +28,11 @@
     display: none;
 }
 
+/*removes vertical overflow*/
+.hideY{
+    overflow-y: hidden;
+}
+
 /* This div holds a single page*/
 .singlePage {
     /*Dimensions*/

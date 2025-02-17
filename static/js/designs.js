@@ -75,6 +75,10 @@ window.onload = () => {
     runObserver();
 
     // add event listener on the carousel container so whenever it is scrolled, observer is run again
-    document.getElementById('carCont').addEventListener('scroll', runObserver);
+    document.getElementById('carCont').addEventListener('scroll', function(){
+        setTimeout(()=>{
+            runObserver();
+        }, 300);
+    });
 
 }

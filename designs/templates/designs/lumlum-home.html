@@ -119,6 +119,9 @@
     #smallText {
         font-size: medium;
     }
+    #mainBody{
+        opacity: 0;
+    }
 
     /* Mobile Devices */
     @media screen and (max-width:600px) {
@@ -241,12 +244,10 @@
     }
 </style>
 
-<script>
-    let width = window.innerWidth
-    document.getElementById('body').style.width = width;
-</script>
 
-<body style="overflow-x: hidden;">
+
+<body style="overflow-x: hidden;" id="mainBody">
+
     <nav>
         <div id="navWrap">
             <div>
@@ -279,7 +280,7 @@
     </nav>
 
     <!--Holds entire body-->
-    <main style="width: 98vw; overflow-x: hidden;" id="body">
+    <main style="width: 98vw; overflow-x: hidden;" id="bodyElem">
         <!--Capture-->
         <div style="margin-top: 2vh;">
             <div class="centerDiv">
@@ -389,6 +390,16 @@
 
         </p>
     </div>
+    <script>
+
+        let width = window.innerWidth
+        const body = document.getElementById('bodyElem');
+        body.style.width = width;
+        console.log('logged')    
+        window.onload =()=> {
+            document.getElementById('mainBody').style.opacity = '1';
+        }
+    </script>
 </body>
 
 </html>

@@ -26,13 +26,13 @@
     <br> <br> <br>
 
     <!--Main div-->
-    <div id="containDiv">
+    <div id="containDiv" class="hideY">
         <!--Hold courosel, is invisible onload, shows up only when all resouces are loaded-->
         <div
-            id="carCont">
+            id="carCont" class="hideY">
             <!--Create 2 copies of images-->
             {% for page in pages %}
-            <div class="singlePage">
+            <div class="singlePage" class="hideY">
                 <a href="{% url 'designs:project' page.page.project %}">
                     <img src="{{page.page.screenshotLaptop.url}}" style="min-width: 33vw; max-width: 33vw;" />
                 </a>
