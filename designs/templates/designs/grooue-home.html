@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROOUE</title>
+
+    <link rel="shortcut icon" href="{{page.screenshotLaptop.url}}" type="image/x-icon">
+</head>
+<style>
+    a{
+        color: gold;
+    }
+    a:visited{
+        color: gold;
+    }
+    body {
+        background-color: white;
+        background-image: url({{page.screenshotLaptop.url}});
+    }
+
+    #mainWrapper {
+        width: 100%;
+    }
+
+    #innerWrapper {
+        width: 100%;
+        background: linear-gradient(45deg, black, white);
+        opacity: 0.98;
+        display: flex;
+        justify-content: center;
+    }
+
+    #elemBorder {
+        width: 94.4%;
+        border: solid 1vw transparent;
+        background: linear-gradient(to right, white, black, white);
+        border-image-slice: 1;
+        border-radius: 5vw;
+        background-clip: padding-box;
+        padding: 1vw;
+        height: fit-content;
+    }
+
+    #bodyWrapper {
+        padding: 2.8vw;
+        border: solid 0.1vw black;
+        border-radius: 5vw;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        background-color: white;
+    }
+
+    .barText {
+        font-size: 1vw;
+        font-weight: 700;
+    }
+
+    .sideBySide {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #earnWrapper {
+        display: flex;
+        justify-content: center;
+        border: solid 0.1vh rgb(200, 200, 200);
+        padding: 1vh;
+        border-radius: 100vw;
+        width: fit-content;
+    }
+
+    .white{
+        color: white;
+    }
+
+
+
+    @media screen and (min-width:1201px) {
+        #innerWrapper {
+            justify-content: center;
+            align-items: normal;
+        }
+    }
+</style>
+
+<body>
+    <div id="mainWrapper">
+        <div id="innerWrapper">
+
+            <div id="elemBorder">
+
+                <div id="bodyWrapper" style="display: relative;">
+                    <div
+                        style="width: 100%; background-color: #E6E6E6; padding: 0.4vw; border-radius: 10vw; position: relative; z-index: 2;">
+                        <div
+                            style="display: grid; grid-template-columns: 58% 22% 20%; border: solid 0.1vw rgb(100, 100, 100); border-radius: 10vw; background-color: white; padding: 1vw;">
+                            <div style="display: flex;">
+                                <div style="display: flex; align-items: center;">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="2vw" height="2vw" fill="currentColor"
+                                        class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z" />
+                                    </svg>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <span style="font-weight: 900; font-size: 1.5vw;">
+                                        GrooueGains
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="sideBySide">
+                                <span class="barText">Home</span>
+                                <span class="barText">Rewards</span>
+                                <span class="barText">Discover</span>
+                            </div>
+
+                            <div class="sideBySide">
+                                <span class="barText"
+                                    style="background-color: black; color: white; padding: 1vw; border-radius: 2vw;">
+                                    Start Listening
+                                </span>
+                                <span class="barText">
+                                    Sign in
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; width: 100%; margin-top: 3vw;">
+
+                        <div id="earnWrapper">
+                            <div style="display: flex; align-items: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1vw" height="1vw" fill="currentColor"
+                                    class="bi bi-file-music" viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.304 3.13a1 1 0 0 1 1.196.98v1.8l-2.5.5v5.09c0 .495-.301.883-.662 1.123C7.974 12.866 7.499 13 7 13s-.974-.134-1.338-.377C5.302 12.383 5 11.995 5 11.5s.301-.883.662-1.123C6.026 10.134 6.501 10 7 10c.356 0 .7.068 1 .196V4.41a1 1 0 0 1 .804-.98z" />
+                                    <path
+                                        d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1" />
+                                </svg>
+                            </div>
+                            <div style="width: fit-content; font-size: 1vw; display: flex; align-items: center;">
+                                Earn rewards while you listen
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="display: flex; justify-content: center; position: relative;">
+                        <div
+                            style="position: absolute; width: 35vw; height: 100%; background: radial-gradient(rgba(255,255,255,0.9), rgba(255, 255, 255, 0.1)); z-index: 2;">
+
+                        </div>
+
+                        <p
+                            style="background-color: white; text-align: center; width: 35vw; font-weight: 900; font-size:3.6vw; font-family:  Helvetica, Arial, sans-serif; border: dotted 0.1vw rgb(200, 200, 200); margin-top: -12vw; padding-top: 12vw; position: relative; z-index: 1; border-top: none; border-bottom: none;">
+                            Get Rewarded for Every Beat
+                        </p>
+
+
+                    </div>
+
+                    <div style="display: flex; justify-content: center;">
+                        <p style="text-align: center; width: 30vw; font-size: 1.4vw;">
+                            Turn your music passion into rewards. Earn points, unlock exclusive content, and level up
+                            your listening experience.
+                        </p>
+
+                    </div>
+
+                    <div style="display: flex; justify-content: center;">
+                        <p
+                            style=" background-color: black; color: white; padding: 1vw; border-radius: 100vw; font-size: 1vw; font-weight: 900;">
+                            Get Early Access
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 2vw; display: flex; justify-content: center;">
+                        <div
+                            style="width: 50vw; display: grid; grid-template-columns: auto auto auto auto auto auto; gap: 2vw; align-items: center;">
+                            {% for image in images %}
+                            <div>
+                                <img src="{{image.image.url}}" alt="" style="width: 6vw; border-radius: 3vw;">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div
+                        style="border: none; margin-top: -15vw; height: 15vw; background: linear-gradient(to top, white, transparent); position: relative; z-index: 2;">
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="background-color: black; margin-top: 10vh;">
+        <p class="white">
+            View on desktop for a better experience
+        </p>
+        <h2 class="white">
+            Contact Developer
+        </h2>
+        <p class="white">
+            Contact the <a target="_blank" href="{% url 'base:base' %}">developer</a>
+        </p>
+        <p class="white">
+            See more from <a target="_blank" href="{% url 'designs:designs' %}">developer</a>
+        </p>
+        <p class="white">
+            Contact developer on <a target="_blank" href="https://x.com/KharayKrayKray">Twitter/X</a>
+        </p>
+
+        <h2 class="white">
+            Contact Designer
+        </h2>
+        <p class="white">
+            Designs and Graphics by <a target="_blank" href="https://x.com/Feyi_Design">Feyi</a>
+        </p>
+        <br><br><br>
+    </div>
+</body>
+
+</html>
