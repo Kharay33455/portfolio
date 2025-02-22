@@ -18,10 +18,12 @@
     body {
         background-color: white;
         background-image: url({{page.screenshotLaptop.url}});
+        opacity: 0;
     }
 
     #mainWrapper {
         width: 100%;
+    
     }
 
     #innerWrapper {
@@ -230,5 +232,11 @@
         <br><br><br>
     </div>
 </body>
+
+<script>
+    window.onload =() =>{
+        document.getElementsByTagName('body')[0].style.opacity = 1;
+    }
+</script>
 
 </html>
