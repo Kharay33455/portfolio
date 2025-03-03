@@ -1,4 +1,3 @@
-portfolio/settings.py
 penv
 db.sqlite3
 *.pyc
