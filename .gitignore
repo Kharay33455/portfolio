@@ -1,4 +1,8 @@
 penv
 db.sqlite3
 *.pyc
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> temp
