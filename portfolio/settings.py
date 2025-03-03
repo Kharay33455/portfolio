@@ -123,8 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [BASE_DIR/'static/']
-
+if os.getenv('debug')=='true':
+    STATICFILES_DIRS = [BASE_DIR/'static/']
+if os.getenv('debug')=='false':
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
