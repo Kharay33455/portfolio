@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title & Meta Description-->
+    <title>Toggle button display by Nosakhare Kingsley</title>
+    <meta name="description" content="Seamless [toggle] [button] [display] [animation].">
+
+
+    <meta name="keywords" content="[toggle], [button], [devkharay],[Nosakhare Kingsley]">
+
+    <!--Open Graph-->
+    <meta property="og:title" content="Toggle Button Display in [HTML, CSS and JavaScript] by Nosakhare Kingsley">
+    <meta property="og:description" content="Toggle button display in [HTML], [CSS] and [JavaScript]">
+    <meta property="og:image" content="{{page.screenshotLaptop.url}}">
+    <meta property="og:url" content="https://devkharay.com/designs/toggle/">
+    <meta property="og:type" content="article">
+
+    <!--  Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Toggle Button Display in [HTML, CSS and JavaScript] by Nosakhare Kingsley">
+    <meta name="twitter:description" content="Toggle button display in [HTML], [CSS] and [JavaScript]">
+    <meta name="twitter:image" content="{{page.screenshotLaptop.url}}">
+
+    <!--  Canonical URL -->
+    <link rel="canonical" href="https://devkharay.com/designs/toggle/">
+
+    <!--  Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "[Toggle Button Display] in [HTML, CSS and JavaScript]",
+      "description": "Toggle button display in [HTML], [CSS] and [JavaScript]",
+      "author": {
+        "@type": "Person",
+        "name": "Nosakhare Kingsley"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "devkharay"
+    },
+      "datePublished": "2025-03-26",
+      "dateModified": "2025-03-26",
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{page.screenshotLaptop.url}}" type="image/x-icon">
+</head>
+
+
+<body>
+
+    <style>
+        /*To center elements within their divs*/
+        .center {
+            display: grid;
+        }
+
+        .center.vertically {
+            align-items: center;
+        }
+
+        .center.horizontally {
+            justify-content: center;
+        }
+
+        .center.both {
+            place-items: center;
+        }
+
+        /*Inner button of premium*/
+        .innerButton {
+            height: 7vw;
+            position: relative;
+            z-index: 2;
+        }
+
+        /*All span tags*/
+        span {
+            font-weight: 300;
+            font-size: 3.5vw;
+        }
+
+        #innerCont {
+            width: 90vw;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        /*Full animation wrapper*/
+        #aWrapper {
+            width: 60vw;
+        }
+
+        /*Large button wrapper*/
+        #lButtonWrapper {
+            background-color: rgb(240, 240, 240);
+            border-radius: 100vw;
+            border: 1px groove transparent;
+            box-shadow: -10px 10px 15px 5px rgba(0, 0, 0, 0.1), 3px 10px 15px 5px rgba(0, 0, 0, 0.1), -2px -2px 15px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 7vw;
+            cursor: pointer;
+        }
+
+        /*Splits a div into two horezontally*/
+        .splitTwo {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            position: relative;
+        }
+
+        /*Splits a div into two vertically*/
+        .splitVerically {
+            grid-template-rows: 50% 50%;
+        }
+
+        /*text "free" button*/
+        #freeText {
+            color: gray;
+            font-size: 3vw;
+        }
+
+        /*Premium button container*/
+        #maCont {
+            width: 30vw;
+            /*    background-color: black; */
+            border-radius: 100vw;
+            padding: 0.2vw;
+            position: relative;
+            z-index: 3;
+        }
+
+        /*Monthly and anually texts wrapper*/
+        .maTextWrapper {
+            position: relative;
+            z-index: 3;
+
+        }
+
+        /*Monthly text*/
+        #mText {
+            color: black;
+            font-size: 3vw;
+        }
+
+        /*Annually text*/
+        #aText {
+            color: gray;
+            font-size: 3vw;
+        }
+
+        /*forces any elem with this class to write texts in gray*/
+        .gray {
+            color: gray !important;
+        }
+
+        /*inner Indicator that signifies which is active between monthly and annually*/
+        #selectorIndicator {
+            position: absolute;
+            z-index: 1;
+            border-radius: 100vw;
+            width: 15vw;
+            background-color: rgb(240, 240, 240);
+            height: 8vw;
+
+        }
+
+        /*inner Indicator that signifies which is active between free and premium*/
+        #selectorIndicatorFandP {
+            position: absolute;
+            z-index: 1;
+            border-radius: 100vw;
+            width: 30vw;
+            min-height: 100%;
+            background-color: black;
+        }
+
+        /*Coloring premium texts to be grau when made*/
+        #premiumText {
+            color: gray;
+            position: relative;
+            z-index: 2;
+            font-size: 3vw
+        }
+
+        /*Animate monthly and annually*/
+        .animateMToA {
+            animation: mToA 200ms ease-in-out forwards;
+        }
+
+        .animateMToAR {
+            animation: mToA 200ms ease-in-out reverse;
+        }
+
+        @keyframes mToA {
+            0% {
+                left: 0%;
+            }
+
+            100% {
+                left: 48.5%;
+            }
+        }
+
+        /*Animate outter indicator*/
+
+        .animateOutterSI {
+            animation: outterMAndPSliderIndicator 200ms ease-in-out forwards;
+        }
+
+
+        .animateOutterSIR {
+            animation: outterMAndPSliderIndicator 200ms ease-in-out reverse;
+        }
+
+        @keyframes outterMAndPSliderIndicator {
+            0% {
+                left: 0%;
+            }
+
+            100% {
+                left: 50%;
+            }
+        }
+
+        /*animate mText and aText*/
+        .animateMAndA {
+            animation: animateMandAText 200ms ease-in-out forwards;
+        }
+
+        .animateMAndAR {
+            animation: animateMandAText 200ms ease-in-out reverse;
+        }
+
+        @keyframes animateMandAText {
+            0% {
+                font-size: 3vw;
+            }
+
+            100% {
+                font-size: 1.5vw;
+            }
+        }
+    </style>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Toggle button display.</h1>
+    </header>
+
+    <!--  Section -->
+    <section>
+        <h2>Key Notes</h2>
+        <ul>
+            <li>Seamless animation✅</li>
+            <li>Pointer changes to cursor on hover✅</li>
+        </ul>
+    </section>
+    <!--Main-->
+    <main>
+        <!--Main container-->
+        <div class="center horizontally">
+            <!--Inner container-->
+            <div class="center both " id="innerCont">
+                <!--Animation wrapper-->
+                <div id="aWrapper">
+                    <!--Large outer button-->
+                    <div id="lButtonWrapper">
+                        <!--Inner buttons.. SPlit into two horizontally equally.. free and premium-->
+                        <div class="splitTwo">
+                            <div class="center both innerButton" onclick="animateFandP('free')">
+                                <span id="freeText">
+                                    Free
+                                </span>
+                            </div>
+
+                            <div id="maCont" style="height: 7vw;" onclick="animateFandP('premium')"
+                                class="center vertically">
+                                <!--Inner split two..Monthly and annually-->
+                                <div class="vertically center splitTwo" style="justify-content:space-around">
+
+                                    <div class="maTextWrapper center horizontally" onclick="animateMandA('monthly')">
+                                        <span id="mText">
+                                            Monthly
+                                        </span>
+                                    </div>
+                                    <div class="maTextWrapper center horizontally" onclick="animateMandA('annual')">
+                                        <span id="aText">
+                                            Annual
+                                        </span>
+                                    </div>
+
+                                    <!--Selector indictor-->
+                                    <div id="selectorIndicator" style="left:0%;">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--Free and premium selector indicator-->
+                            <div id="selectorIndicatorFandP" style="left : 50%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!--JS-->
+    <script>
+        // gloablly abailable to program
+        let state = 'monthly';
+        let stateFandP = 'premium';
+
+        // animate Month and Annual switches
+        const animateMandA = (_stateTo) => {
+            // terminate if same states
+            if (state === _stateTo) {
+                return;
+            }
+
+            // inner indicator element
+            const indicatorElem = document.getElementById('selectorIndicator')
+            // animate monthly to anuual
+            if (_stateTo === 'annual' && stateFandP == 'premium') {
+                indicatorElem.classList.add('animateMToA');
+                indicatorElem.style.left = '48.5%';
+                // change colors
+                document.getElementById('aText').style.color = 'black';
+                document.getElementById('mText').style.color = 'gray';
+                // remove animations
+                setTimeout(() => {
+                    indicatorElem.classList.remove('animateMToA');
+                }, 200);
+                // set new state
+                state = _stateTo;
+            }
+
+            // animate annual to monthly
+            if (_stateTo === 'monthly' && stateFandP == 'premium') {
+                indicatorElem.classList.add('animateMToAR');
+                indicatorElem.style.left = '0%';
+                // channge colors
+                document.getElementById('aText').style.color = 'gray';
+                document.getElementById('mText').style.color = 'black';
+                // remove style
+                setTimeout(() => {
+                    indicatorElem.classList.remove('animateMToAR');
+                }, 200);
+                // set new state
+                state = _stateTo;
+            }
+        }
+
+        // animate betwee free and premium
+        const animateFandP = (_stateTo) => {
+            // break for same state
+            if (stateFandP === _stateTo) {
+                return;
+            }
+            // indicator between free and premium
+            const fAndPIndicator = document.getElementById('selectorIndicatorFandP');
+            //  container for monthly and annually
+            const maCont = document.getElementById('maCont');
+            // indicatpr elem between monthjly and annually
+            const indicatorElem = document.getElementById('selectorIndicator')
+            //  monthly and anually texts
+            const mText = document.getElementById('mText');
+            const aText = document.getElementById('aText');
+
+            // control flow 
+            switch (_stateTo) {
+                case 'free':
+                    // animate to free mode
+                    console.log('animate to free mode');
+                    fAndPIndicator.classList.add('animateOutterSIR');
+                    fAndPIndicator.style.left = "0%";
+
+                    document.getElementById('freeText').style.color = 'white';
+                    maCont.classList.add('splitVerically');
+                    // create premium text cont
+                    const preCont = document.createElement('div');
+                    preCont.id = "premiumCont";
+                    preCont.classList.add("center", "horizontally");
+                    // create pre text span
+                    const preText = document.createElement('span');
+                    preText.id = "premiumText";
+                    preText.innerHTML = 'Premium';
+                    preCont.appendChild(preText);
+                    maCont.prepend(preCont);
+
+                    mText.classList.add("animateMAndA");
+                    aText.classList.add("animateMAndA");
+                    // change texts color and size
+                    mText.style.fontSize = "1.5vw";
+                    aText.style.fontSize = "1.5vw";
+                    mText.classList.add('gray');
+                    aText.classList.add('gray');
+
+                    //remove all anuimations
+                    setTimeout(() => {
+                        fAndPIndicator.classList.remove('animateOutterSIR');
+                        mText.classList.remove("animateMAndA");
+                        aText.classList.remove("animateMAndA");
+                    }, 200);
+
+
+
+                    // set new state
+                    stateFandP = _stateTo;
+                    break;
+                case 'premium':
+                    // animate to premium mode
+                    const childToRM = document.getElementById('premiumCont');
+                    maCont.removeChild(childToRM);
+                    maCont.classList.remove('splitVerically');
+                    console.log('animate to premium')
+                    fAndPIndicator.classList.add('animateOutterSI');
+                    fAndPIndicator.style.left = "50%";
+                    document.getElementById('freeText').style.color = 'gray';
+
+                    // animate
+                    mText.classList.add("animateMAndAR");
+                    aText.classList.add("animateMAndAR");
+
+                    // style to animation finish point
+                    mText.style.fontSize = "3vw"
+                    aText.style.fontSize = "3vw"
+                    mText.classList.remove('gray')
+                    aText.classList.remove('gray')
+
+                    //remove all animations
+                    setTimeout(() => {
+                        fAndPIndicator.classList.remove('animateOutterSI');
+                        mText.classList.remove("animateMAndAR");
+                        aText.classList.remove("animateMAndAR");
+                    }, 200);
+
+                    // set new state
+                    stateFandP = _stateTo;
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
