@@ -16,10 +16,10 @@ class Candidate(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length = 40)
     candidate = models.ForeignKey(Candidate, on_delete = models.CASCADE)
-    type = models.CharField(max_length = 20)
+    proj_type = models.CharField(max_length = 20)
     phone_view = models.FileField(null=True, blank=True)
     laptop_view = models.FileField(null=True, blank=True)
-    screenshot = models.ImageField(null=True, blank=True)
+    tablet_view = models.ImageField(null=True, blank=True)
     details = models.CharField(max_length = 250)
     # why was it built
     objective = models.TextField(null=True, blank=True)
@@ -68,8 +68,9 @@ class Skill(models.Model):
     
 class Message(models.Model):
     title = models.CharField(max_length = 20)
-    message = models.CharField(max_length = 200)
+    message = models.TextField()
     email = models.EmailField()
+    sender = models.CharField(max_length = 100)
 
     def __str__(self):
         return self.title

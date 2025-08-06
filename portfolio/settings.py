@@ -31,11 +31,14 @@ if os.getenv('debug')=='true':
 elif os.getenv('debug') == 'false':
     DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv('allowedHosts1'),os.getenv('allowedHosts2')]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 # Application definition
 INSTALLED_APPS = [
+    "corsheaders",
+    "rest_framework",
     'designs.apps.DesignsConfig',
+    'statementreader.apps.StatementreaderConfig',
     'base.apps.BaseConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +58,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = os.getenv("CORS").split(",")
+print(CORS_ALLOWED_ORIGINS)
 
 ROOT_URLCONF = 'portfolio.urls'
 
