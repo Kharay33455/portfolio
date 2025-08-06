@@ -146,7 +146,7 @@
         <div id="projects">
 
             {% for proj in projs %}
-            <div id="project" style="background-image: url({{proj.screenshot.url}});">
+            <div id="project" style="background-image: url({{proj.laptop_view.url}});">
                 <div id="projDescription">
                     <h3 style="overflow: hidden;">
                         {{proj.name}}
@@ -209,7 +209,7 @@
                         </th>
 
                         <td>
-                            {{skill.experience}} year(s).
+                              {% widthratio skill.experience 40 1 %} year(s).
                         </td>
                     </tr>
                     {% endfor %}
